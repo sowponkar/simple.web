@@ -1,0 +1,191 @@
+        :root {
+            --mint: #4df2d0;
+            --mint-light: rgba(77, 242, 208, 0.2);
+            --text-main: #333;
+            --text-muted: #666;
+            --bg: #f7fdfc;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Background Pattern (Bottom Left) */
+        body::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            background-image: radial-gradient(var(--mint) 1px, transparent 1px);
+            background-size: 15px 15px;
+            opacity: 0.3;
+        }
+
+        /* Floating Diamond (Top Right) */
+        .diamond-bg {
+            position: absolute;
+            top: 50px;
+            right: 80px;
+            font-size: 80px;
+            color: var(--mint);
+            opacity: 0.2;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* Side Navigation */
+        .side-nav {
+            position: fixed;
+            left: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .nav-btn {
+            width: 50px;
+            height: 50px;
+            background: var(--mint);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            box-shadow: 0 4px 15px var(--mint-light);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .nav-btn:hover { transform: scale(1.1); filter: brightness(1.1); }
+
+        /* Social Bar (Right) */
+        .social-bar {
+            position: fixed;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 20px 10px;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .social-icon {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .fb { background: #1877F2; }
+        .yt { background: #FF0000; }
+        .tw { background: #1DA1F2; }
+        .gh { background: #24292e; }
+
+        /* Main Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            gap: 80px;
+            max-width: 1100px;
+            width: 90%;
+            z-index: 1;
+        }
+
+        .top-title {
+            position: absolute;
+            top: 40px;
+            width: 100%;
+            text-align: center;
+            color: var(--mint);
+            font-weight: 800;
+            letter-spacing: 2px;
+            font-size: 24px;
+        }
+
+        /* Image Blob Animation */
+        .img-wrapper {
+            position: relative;
+            width: 400px;
+            height: 400px;
+        }
+
+        .blob {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: var(--mint);
+            opacity: 0.4;
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            animation: blobMorph 8s linear infinite alternate;
+        }
+
+        .profile-img {
+            position: relative;
+            width: 100%;
+            z-index: 2;
+            /* Use a transparent PNG here */
+            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.1));
+        }
+
+        /* Text Content */
+        .content h1 {
+            font-size: 80px;
+            margin: 0;
+            line-height: 1;
+        }
+
+        .content h1 span { color: var(--mint); }
+
+        .content p {
+            font-size: 18px;
+            color: var(--text-muted);
+            margin: 20px 0;
+            max-width: 450px;
+        }
+
+        .hire-btn {
+            background: transparent;
+            border: 2px solid var(--mint);
+            padding: 12px 40px;
+            border-radius: 25px;
+            font-weight: 700;
+            color: #333;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 0 10px var(--mint-light);
+        }
+
+        .hire-btn:hover {
+            background: var(--mint);
+            color: white;
+            box-shadow: 0 0 25px var(--mint);
+        }
+
+        /* Animations */
+        @keyframes blobMorph {
+            0% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+            100% { border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
